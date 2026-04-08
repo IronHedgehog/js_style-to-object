@@ -10,7 +10,9 @@ function convertToObject(sourceString) {
 
   const filterSpaces = splitStr.map((item) => item.trim());
 
-  const filterEmptyLines = filterSpaces.filter((item) => item.length > 0);
+  const filterEmptyLines = filterSpaces.filter((item) => {
+    return item.length > 0 && item.includes(':');
+  });
 
   const keyValue = filterEmptyLines.map((item) => {
     const parts = item.split(':');
